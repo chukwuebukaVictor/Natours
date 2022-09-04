@@ -33,7 +33,6 @@ const tourSchema = new mongoose.Schema({
   },
 });
 
-const Tour = mongoose.model('Tour', tourSchema);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
