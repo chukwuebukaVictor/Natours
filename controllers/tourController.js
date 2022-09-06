@@ -1,5 +1,31 @@
 const Tour = require('../models/tourModel');
 
+// const tours = JSON.parse(
+//   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
+// );
+
+// exports.checkBody = (req, res, next) => {
+//   const newTour = req.body;
+//   if (!newTour.price || !newTour.name) {
+//     return res.status(400).json({
+//       status: 'fail',
+//       message: 'Missing name or price',
+//     });
+//   }
+//   next();
+// };
+
+// exports.checkID = (req, res, next, val) => {
+//     // console.log(`Tour id is: ${val}`);
+//   if (+(`${val}` > tours.length)) {
+//     return res.status(404).json({
+//       status: 'fail',
+//       message: 'Invalid ID',
+//     });
+//   }
+//   next();
+// };
+
 exports.getAllTours = async (req, res) => {
   try {
     const tours = await Tour.find();
