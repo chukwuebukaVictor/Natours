@@ -114,9 +114,9 @@ tourSchema.pre(/^find/, function (next) {
 });
 
 tourSchema.post(/^find/, function (doc, next) {
-  if (process.env.NODE_ENV === 'production') {
-    console.log(`The query took: ${Date.now() - this.start} milliseconds`);
-  }
+  // if (process.env.NODE_ENV === 'production') {
+  console.log(`The query took: ${Date.now() - this.start} milliseconds`);
+  // }
 
   next();
 });
