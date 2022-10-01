@@ -51,6 +51,15 @@ const updateMe = catchAsync(async (req, res, next) => {
   });
 });
 
+const deleteMe = catchAsync(async (req, res, next) => {
+  await User.findByIdAndUpdate(req.user.id, { active: false });
+
+  res.status(204).json({
+    status: 'success',
+    data: null,
+  });
+});
+
 const createUser = (req, res) => {
   res.status(505).json({
     status: 'error',
@@ -72,18 +81,11 @@ const updateUser = (req, res) => {
   });
 };
 
-const deleteUser = (req, res) => {
-  res.status(505).json({
-    status: 'error',
-    message: 'This route is not yet defined',
-  });
-};
-
 module.exports = {
   getAllUsers,
   getUser,
-  deleteUser,
   updateUser,
   createUser,
   updateMe,
+  deleteMe,
 };
