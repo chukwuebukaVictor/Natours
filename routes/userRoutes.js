@@ -21,18 +21,15 @@ router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
 
 //Protect all route after this middleware
-router.use(authController.protect)
+router.use(authController.protect);
 
-router.patch(
-  '/updateMyPassword',
-  authController.updatePassword
-);
+router.patch('/updateMyPassword', authController.updatePassword);
 
-router.get('/me',getMe, getUser);
+router.get('/me', getMe, getUser);
 router.patch('/updateMe', updateMe);
 router.delete('/deleteMe', deleteMe);
 
-router.use(authController.restrictTo('admin'))
+router.use(authController.restrictTo('admin'));
 
 router.route('/').get(getAllUsers).post(createUser);
 router.route('/:id').get(getUser).patch(updateUser).delete(deleteUser);
